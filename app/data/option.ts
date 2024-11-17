@@ -106,7 +106,6 @@ export async function fetchOptionExpirations({
       // For higher-price stocks, round to nearest 5
       roundedLastClose = Math.round(lastClose / 5) * 5;
     }
-    console.log("roundedLastClose", roundedLastClose);
     // Get all options for that strike price
     const { options, error: optionsError } = await fetchTickerOptions({
       underlyingTicker: ticker,
