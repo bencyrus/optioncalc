@@ -20,7 +20,6 @@ export default function SelectFilterSearchParam({
   function handleChange(e: React.ChangeEvent<HTMLSelectElement>) {
     updateSearchParam(paramName, e.target.value);
   }
-  console.log("paramName:", paramName, "selectedOption", selectedOption);
   return (
     <select
       value={selectedOption}

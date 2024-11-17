@@ -19,7 +19,7 @@ export default async function OptionsPage({ searchParams }: OptionsPageProps) {
   const contractType = (sp.contractType as "call" | "put") ?? "call";
 
   return (
-    <div>
+    <div className="p-[16px]">
       <Suspense fallback={<div>Loading...</div>}>
         <OptionsColumn
           underlyingTicker={ticker}

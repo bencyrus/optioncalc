@@ -23,7 +23,7 @@ export default async function OptionsWrapper({
   }
 
   return (
-    <div>
+    <div className="flex flex-col gap-[10px]">
       {options?.map((option) => (
         <OptionItem key={option.ticker} option={option} />
       ))}
