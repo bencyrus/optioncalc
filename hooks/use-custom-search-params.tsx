@@ -19,9 +19,17 @@ export default function useCustomSearchParams() {
     replace(pathname + "?" + createQueryString(name, value));
   }
 
+  function setSearchParams(p: { [key: string]: string }) {
+    const params = new URLSearchParams(searchParams.toString());
+    Object.entries(p).forEach(([key, value]) => {
+      params.set(key, value);
+    });
+    replace(pathname + "?" + params.toString());
+  }
+
   function getSearchParam(name: string) {
     return searchParams.get(name);
   }
 
-  return { setSearchParam, getSearchParam };
+  return { setSearchParam, setSearchParams, getSearchParam };
 }

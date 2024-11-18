@@ -5,14 +5,18 @@ interface OptionsWrapperProps {
   underlyingTicker: string;
   contractType: "call" | "put";
   expirationDate?: string;
-  predictedPrice?: number;
+  predictedPrice1?: number;
+  predictedPrice2?: number;
+  predictedPrice3?: number;
 }
 
 export default async function OptionsWrapper({
   underlyingTicker,
   contractType,
   expirationDate,
-  predictedPrice,
+  predictedPrice1,
+  predictedPrice2,
+  predictedPrice3,
 }: OptionsWrapperProps) {
   const { options, error } = await fetchTickerOptions({
     underlyingTicker,
@@ -30,7 +34,9 @@ export default async function OptionsWrapper({
         <OptionItem
           key={option.ticker}
           option={option}
-          predictedPrice={predictedPrice || 0}
+          predictedPrice1={predictedPrice1 || 0}
+          predictedPrice2={predictedPrice2 || 0}
+          predictedPrice3={predictedPrice3 || 0}
         />
       ))}
     </div>

@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import useCustomSearchParams from "@/hooks/use-custom-search-params";
 import SelectFilterSearchParam from "./select-filter-search-param";
 
-const tickers = ["AFRM", "AAPL", "PLUG"];
+const tickers = ["AFRM", "AAPL", "PLUG", "JPM"];
 
 export default function TickerFilter() {
   const { getSearchParam, setSearchParam: updateSearchParam } =
