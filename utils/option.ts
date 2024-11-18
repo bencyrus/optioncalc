@@ -1,7 +1,7 @@
 // function to take option in form AFRM270115C00035000 or anything like BA241122C00105000 and return the underlying ticker, price in cents and date in format yy-mm-dd
 interface ParseOptionTickerResponse {
   underlyingTicker: string;
-  priceInCents: number;
+  strikePriceInCents: number;
   date: string;
 }
 
@@ -14,7 +14,7 @@ export function parseOptionTicker(ticker: string): ParseOptionTickerResponse {
 
   // price is the number after the "C" or "P" character
   const priceMatch = cleanTicker.match(/[CP](\d+)/);
-  const priceInCents = priceMatch ? parseInt(priceMatch[1], 10) / 10 : 0;
+  const strikePriceInCents = priceMatch ? parseInt(priceMatch[1], 10) / 10 : 0;
 
   // date is all the numbers after the first letters that are the underlying ticker before the "C" character
   const dateMatch = cleanTicker.match(
@@ -34,5 +34,5 @@ export function parseOptionTicker(ticker: string): ParseOptionTickerResponse {
   const day = rawDate.slice(4, 6);
   const date = `${year}-${month}-${day}`;
 
-  return { underlyingTicker, priceInCents, date };
+  return { underlyingTicker, strikePriceInCents, date };
 }

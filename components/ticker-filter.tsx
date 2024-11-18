@@ -8,7 +8,8 @@ import SelectFilterSearchParam from "./select-filter-search-param";
 const tickers = ["AFRM", "AAPL", "PLUG"];
 
 export default function TickerFilter() {
-  const { getSearchParam, updateSearchParam } = useCustomSearchParams();
+  const { getSearchParam, setSearchParam: updateSearchParam } =
+    useCustomSearchParams();
   const selectedOption = getSearchParam("ticker") || "";
 
   useEffect(() => {

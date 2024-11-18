@@ -6,6 +6,7 @@ interface OptionsPageSearchParams {
   ticker?: string;
   expiration?: string;
   contractType?: "call" | "put";
+  predictedPrice?: number;
 }
 
 interface OptionsPageProps {
@@ -17,7 +18,7 @@ export default async function OptionsPage({ searchParams }: OptionsPageProps) {
   const ticker = sp.ticker ?? "AFRM";
   const expiration = sp.expiration ?? "";
   const contractType = (sp.contractType as "call" | "put") ?? "call";
-
+  const predictedPrice = sp.predictedPrice ?? 0;
   return (
     <div className="p-[16px]">
       <Suspense fallback={<div>Loading...</div>}>
@@ -25,6 +26,7 @@ export default async function OptionsPage({ searchParams }: OptionsPageProps) {
           underlyingTicker={ticker}
           contractType={contractType}
           expirationDate={expiration}
+          predictedPrice={predictedPrice}
         />
       </Suspense>
     </div>

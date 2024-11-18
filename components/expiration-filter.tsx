@@ -8,7 +8,8 @@ import SelectFilterSearchParam from "./select-filter-search-param";
 export default function ExpirationFilter() {
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [expirations, setExpirations] = useState<string[]>([]);
-  const { getSearchParam, updateSearchParam } = useCustomSearchParams();
+  const { getSearchParam, setSearchParam: updateSearchParam } =
+    useCustomSearchParams();
 
   const selectedTicker = getSearchParam("ticker") || "";
   const selectedContractType = getSearchParam("contractType") as "call" | "put";

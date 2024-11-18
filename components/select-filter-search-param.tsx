@@ -15,7 +15,7 @@ export default function SelectFilterSearchParam({
   options,
   selectedOption,
 }: SelectFilterSearchParamProps) {
-  const { updateSearchParam } = useCustomSearchParams();
+  const { setSearchParam: updateSearchParam } = useCustomSearchParams();
 
   function handleChange(e: React.ChangeEvent<HTMLSelectElement>) {
     updateSearchParam(paramName, e.target.value);

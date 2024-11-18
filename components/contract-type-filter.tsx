@@ -8,7 +8,8 @@ import useCustomSearchParams from "@/hooks/use-custom-search-params";
 const contractTypes = ["call", "put"];
 
 export default function ContractTypeFilter() {
-  const { getSearchParam, updateSearchParam } = useCustomSearchParams();
+  const { getSearchParam, setSearchParam: updateSearchParam } =
+    useCustomSearchParams();
   const selectedOption =
     getSearchParam("contractType") || ("" as "call" | "put");
 

@@ -1,20 +1,31 @@
 import { parseOptionTicker } from "../utils/option";
-import { OptionType } from "../types/option";
+import { OptionType } from "@/types/option";
 import { fetchLastClose } from "@/data/stock";
+import { returnPercentage } from "@/utils/calculator";
 
 interface OptionItemProps {
   option: OptionType;
+  predictedPrice: number;
 }
 
-export default async function OptionItem({ option }: OptionItemProps) {
-  const { priceInCents } = parseOptionTicker(option.ticker);
-
+export default async function OptionItem({
+  option,
+  predictedPrice,
+}: OptionItemProps) {
+  const { strikePriceInCents } = parseOptionTicker(option.ticker);
   const { lastClose } = await fetchLastClose({ ticker: option.ticker });
+
+  const profitPercentage = returnPercentage({
+    strikePrice: option.strike_price,
+    optionPrice: lastClose || 0 / 100,
+    predictedStockPrice: predictedPrice,
+  });
 
   return (
     <div className="flex flex-row justify-between border border-gray-200 py-[5px] px-[10px] rounded-[4px]">
-      <StrikePrice priceInCents={priceInCents} />
+      <StrikePrice priceInCents={strikePriceInCents} />
       <LastClose price={lastClose} />
+      <ReturnPercentage returnPercentage={profitPercentage} />
     </div>
   );
 }
@@ -35,4 +46,12 @@ interface LastCloseProps {
 
 function LastClose({ price }: LastCloseProps) {
   return <div>{price}</div>;
+}
+
+interface ReturnPercentageProps {
+  returnPercentage: number;
+}
+
+function ReturnPercentage({ returnPercentage }: ReturnPercentageProps) {
+  return <div>{returnPercentage.toFixed(2)}%</div>;
 }

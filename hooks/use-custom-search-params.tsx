@@ -15,7 +15,7 @@ export default function useCustomSearchParams() {
     [searchParams]
   );
 
-  function updateSearchParam(name: string, value: string) {
+  function setSearchParam(name: string, value: string) {
     replace(pathname + "?" + createQueryString(name, value));
   }
 
@@ -23,5 +23,5 @@ export default function useCustomSearchParams() {
     return searchParams.get(name);
   }
 
-  return { updateSearchParam, getSearchParam };
+  return { setSearchParam, getSearchParam };
 }
