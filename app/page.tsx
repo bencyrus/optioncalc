@@ -5,7 +5,7 @@ export default async function HomePage() {
     <main className="min-h-screen bg-neutral-900 py-16 px-4">
       <div className="max-w-4xl mx-auto text-center">
         <h1 className="text-4xl font-bold text-white mb-6">
-          Options Price Calculator
+          Options Returns Calculator
         </h1>
 
         <p className="text-xl text-neutral-300 mb-8">

@@ -1,4 +1,4 @@
-# Options Price Calculator
+# Options Returns Calculator
 
 A powerful web application for calculating and visualizing potential returns on options trades based on different price scenarios and expiration dates.
 
