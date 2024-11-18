@@ -21,7 +21,13 @@ export default function Predictions({ stockPrice }: PredictionsProps) {
         predictedPrice3: predictedPrice3 || stockPrice.toString(),
       });
     }
-  }, [predictedPrice1, predictedPrice2, predictedPrice3, stockPrice]);
+  }, [
+    predictedPrice1,
+    predictedPrice2,
+    predictedPrice3,
+    stockPrice,
+    setSearchParams,
+  ]);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();

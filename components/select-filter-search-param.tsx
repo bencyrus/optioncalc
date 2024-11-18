@@ -1,7 +1,5 @@
 "use client";
 
-import { useCallback } from "react";
-import { useRouter, usePathname, useSearchParams } from "next/navigation";
 import useCustomSearchParams from "@/hooks/use-custom-search-params";
 
 interface SelectFilterSearchParamProps {
