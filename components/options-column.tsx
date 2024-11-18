@@ -22,6 +22,7 @@ export default async function OptionsColumn({
   predictedPrice3,
 }: OptionsColumnProps) {
   const { lastClose } = await fetchLastClose({ ticker: underlyingTicker });
+  console.log("last close on options column", lastClose);
   return (
     <div className="flex flex-col gap-[16px] max-w-[600px]">
       <OptionFilters />
